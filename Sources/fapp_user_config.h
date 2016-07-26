@@ -31,34 +31,34 @@
 #define FAPP_CFG_STAT_CMD               (1)
 
 /*  "http" command.*/
-#define FAPP_CFG_HTTP_CMD               (0)
+#define FAPP_CFG_HTTP_CMD               (1)
 
 /*  "exp" command.*/
 #define FAPP_CFG_EXP_CMD                (0)
 
 /*  "save" command.*/
-#define FAPP_CFG_SAVE_CMD               (1)
+#define FAPP_CFG_SAVE_CMD               (0)
 
 /*  "reset" command.*/
-#define FAPP_CFG_RESET_CMD              (1)
+#define FAPP_CFG_RESET_CMD              (0)
 
 /*  "telnet" command.*/
-#define FAPP_CFG_TELNET_CMD             (0)
+#define FAPP_CFG_TELNET_CMD             (1)
 
 /*  "bench" command.*/
 #define FAPP_CFG_BENCH_CMD              (1)
 
 /* Reading of the configuration parameters from the Flash
  * memory during the application bootup.*/
-#define FAPP_CFG_PARAMS_READ_FLASH       (1)
+#define FAPP_CFG_PARAMS_READ_FLASH       (0)
 
 /* Rewriting of the configuration parameters in the Flash
  * memory duiring flashing of the application. */
-#define FAPP_CFG_PARAMS_REWRITE_FLASH    (1)
+#define FAPP_CFG_PARAMS_REWRITE_FLASH    (0)
 
-#if 0 /* To run servers on startup set to 1. */
+#if 1 /* To run servers on startup set to 1. */
     #define FAPP_CFG_STARTUP_SCRIPT_ENABLED	(1)
-    #define FAPP_CFG_STARTUP_SCRIPT "llmnr"     /* For example "http; telnet" */
+    #define FAPP_CFG_STARTUP_SCRIPT "telnet"     /* For example "http; telnet" */
 #endif
 
 #endif /* _FAPP_USER_CONFIG_H_ */

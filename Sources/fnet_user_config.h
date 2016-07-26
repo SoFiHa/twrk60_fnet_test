@@ -115,16 +115,18 @@
 * HTTP Server service support.
 ******************************************************************************/
 #define FNET_CFG_HTTP               (0)
+#define FNET_CFG_HTTP_AUTHENTICATION_BASIC  (1) /* Enable HTTP authentication.*/
+#define FNET_CFG_HTTP_POST                  (1) /* Enable HTTP POST-method support.*/
 
 /*****************************************************************************
 * Telnet Server service support.
 ******************************************************************************/
-#define FNET_CFG_TELNET             (0)
+#define FNET_CFG_TELNET             (1)
 
 /*****************************************************************************
 * Flash Module driver support.
 ******************************************************************************/
-#define FNET_CFG_FLASH                      (1)
+#define FNET_CFG_FLASH                      (0)
 
 /*****************************************************************************
 * Multicast & IGMP & MLD support.
