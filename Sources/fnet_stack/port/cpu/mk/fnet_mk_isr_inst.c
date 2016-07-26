@@ -46,18 +46,20 @@ fnet_return_t fnet_cpu_isr_install(fnet_uint32_t vector_number, fnet_uint32_t pr
 
     irq_vec = (fnet_uint32_t *)(FNET_CFG_CPU_VECTOR_TABLE) + vector_number;
 
-    if(*irq_vec != (fnet_uint32_t) FNET_ISR_HANDLER)
+    fnet_bool_t isrInstalled = *irq_vec & ~(0x1) != (fnet_uint32_t) FNET_ISR_HANDLER;
+    if(!isrInstalled)
     {
         /* It's not installed yet.*/
-        *irq_vec = (fnet_uint32_t) FNET_ISR_HANDLER;
+        *irq_vec = (fnet_uint32_t) FNET_ISR_HANDLER | 0x1;
     }
+    isrInstalled = *irq_vec & ~(0x1) != (fnet_uint32_t) FNET_ISR_HANDLER;
 
     if(priority > FNET_CFG_CPU_VECTOR_PRIORITY_MAX)
     {
         priority = FNET_CFG_CPU_VECTOR_PRIORITY_MAX;
     }
 
-    if(*irq_vec == (fnet_uint32_t) FNET_ISR_HANDLER)
+    if(isrInstalled)
     {
         /* Make sure that the IRQ is an allowable number. */
         irq_number = vector_number - 16u;
